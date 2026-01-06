@@ -4,6 +4,7 @@
 
 script_name=$(basename "$0")
 rclone_path="/usr/bin/rclone"
+sync_command="$rclone_path sync"
 
 args=$@
 args_count=$#
@@ -140,6 +141,6 @@ safety_sync_check
 
 # invoke rclone sync
 info_log "Invoked command: \"$script_name $args\""
-rclone sync $args
+$sync_command $args
 
 exit 0
