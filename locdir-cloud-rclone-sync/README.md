@@ -2,9 +2,7 @@
 
 ## 1. safe-rclone-sync.sh
 
-The script is a safe wrapper around `rclone sync` that aborts synchronization if destination directory will lose
-more than `20%` of files during the sync. It takes rclone specific arguments, options and flags that are passing to the
-`rclone sync` if the condition is met.
+The script is a safe wrapper around `rclone sync` that aborts synchronization if destination directory will lose more than `20%` of files during the sync. The script takes rclone specific arguments, options and flags, checks the condition and makes the decision about the sync.
 
 ## 2 create-unit-rclone-sync-shutdown.sh
 
