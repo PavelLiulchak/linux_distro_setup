@@ -111,3 +111,50 @@ REPO=<ohmyzsh fork repo> BRANCH=branch_with_your_customs sh -c "$(curl -fsSL htt
 #### 13. Install VSCode
 
 https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions
+
+#### 14. Install and set up VirtualBox
+
+1. Check the host OS is supported by VirtualBox, visit official site.
+
+2. Allow virtualization in BIOS
+
+3. Disable secure boot otherwise you have to sign the kernel modules.
+
+4. Install headers for kernel modules building
+
+ ```bash
+ sudo dnf install -y kernel-devel kernel-devel-$(uname -r)
+ ```
+
+ 5. Initiate VBox installation
+
+ 6. Check kernel modules are installed
+```bash
+ lsmod | grep vbox
+ ```
+
+
+**_Note: VirtualBox vs KVM kernel module_**
+
+VirtualBox bug was reported on the kernels >= 6.14: [issue 81](https://github.com/VirtualBox/virtualbox/issues/81)
+
+Check kvm modules are present:
+```bash
+lsmod | grep kvm
+```
+_**Temporary workaround:** unload kvm modules_
+```bash
+sudo modprobe -r kvm_intel # or kvm_amd
+sudo modprobe -r kvm
+```
+
+_**Permanent workaround:** add kvm modules to blacklist to prevent their loading after reboot._
+```bash
+sudo vim /etc/modprobe.d/kvm-blacklist.conf
+```
+Add lines in the mentioned file and reboot the system:
+```bash
+blacklist kvm
+blacklist kvm_intel
+blacklist kvm_amd
+```
