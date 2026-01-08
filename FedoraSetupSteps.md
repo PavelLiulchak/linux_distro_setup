@@ -158,3 +158,7 @@ blacklist kvm
 blacklist kvm_intel
 blacklist kvm_amd
 ```
+
+#### 14. Setup VPN client
+
+[Happ](https://github.com/Happ-proxy/happ-desktop/releases)
