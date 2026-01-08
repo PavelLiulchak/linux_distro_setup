@@ -16,7 +16,7 @@ groups <username>
 
 #### 2. Prepare necessary directories
 ```
-mkdir $HOME/Projects $HOME/Documents/PARA $HOME/Logs
+mkdir -p $HOME/Projects $HOME/Documents/PARA $HOME/Logs $HOME/.config/systemd/user
 ```
 
 #### 3. Provide custom dnf.conf if needed for fast mirrors access
