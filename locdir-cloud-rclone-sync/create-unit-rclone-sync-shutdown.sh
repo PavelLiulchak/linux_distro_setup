@@ -130,6 +130,11 @@ while test -n "$1" ; do
   shift 1
 done
 
+if [[ ! -d $user_unit_files_path ]]; then
+  echo "Directory - $user_unit_files_path does not exist"
+  exit 1
+fi
+
 if [[ ! -f $exec_path ]]; then
   echo "Provided path for execution - $exec_path does not exist"
   exit 1
