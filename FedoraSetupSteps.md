@@ -162,3 +162,26 @@ blacklist kvm_amd
 #### 14. Setup VPN client
 
 [Happ](https://github.com/Happ-proxy/happ-desktop/releases)
+
+#### 15. Set up Syncthing for Android <-> Linux sync
+
+[Downloads](https://syncthing.net/downloads/)
+
+[Releases](https://github.com/syncthing/syncthing/releases)
+
+##### [Set up syncthing as user service](https://docs.syncthing.net/users/autostart.html#how-to-set-up-a-user-service)
+
+1. copy [provided](https://github.com/syncthing/syncthing/blob/main/etc/linux-systemd/user/syncthing.service) user service file into `$HOME/.config/systemd/user`
+2. create symlink:
+```bash
+ln -s <path_to_executable_dir>/syncthing /usr/bin/syncthing
+```
+or modify `.service` file by specifying the path to executable.
+
+Note: WebUi: http://127.0.0.1:8384/
+
+#### 15. Install [Obsidian](https://obsidian.md/download)
+
+```bash
+sudo snap install obsidian --classic
+```
