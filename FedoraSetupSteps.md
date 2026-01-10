@@ -162,3 +162,47 @@ blacklist kvm_amd
 #### 14. Setup VPN client
 
 [Happ](https://github.com/Happ-proxy/happ-desktop/releases)
+
+#### 15. Set up Syncthing for Android <-> Linux sync
+
+[Downloads](https://syncthing.net/downloads/)
+
+[Releases](https://github.com/syncthing/syncthing/releases)
+
+##### [Set up syncthing as user service](https://docs.syncthing.net/users/autostart.html#how-to-set-up-a-user-service)
+
+1. copy [provided](https://github.com/syncthing/syncthing/blob/main/etc/linux-systemd/user/syncthing.service) user service file into `$HOME/.config/systemd/user`
+2. create symlink:
+```bash
+ln -s <path_to_executable_dir>/syncthing /usr/bin/syncthing
+```
+or modify `.service` file by specifying the path to executable.
+
+Note: WebUi: http://127.0.0.1:8384/
+
+#### 16. Set up [Obsidian](https://obsidian.md/download)
+
+1. `mkfir -p ~/Programs/Obsidian`
+2. Download the AppImage into `~/Programs/Obsidian`
+3. `touch ~/.local/share/applications/obsidian.desktop`
+4. Put into the file the content:
+```
+[Desktop Entry]
+Name=Obsidian
+Comment=Markdown-based knowledge base
+Exec=$HOME/Programs/Obsidian/Obsidian-1.10.6.AppImage %U
+Icon=$HOME/Documents/PARA/3_Resources/it/Obsidian/obsidian_logo.svg
+Terminal=false
+Type=Application
+Categories=Office;Utility;TextEditor;
+StartupWMClass=obsidian
+MimeType=text/markdown;
+```
+5. Make `.desktop` file executable
+```
+chmod +x ~/.local/share/applications/obsidian.desktop
+```
+6. Update the applications cache
+```
+update-desktop-database ~/.local/share/applications
+```
